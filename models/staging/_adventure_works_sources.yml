@@ -1,0 +1,54 @@
+
+version: 2
+
+# Todas as tabelas estão no mesmo schema do Databricks (adventure_works).
+# As 3 sources abaixo separam as tabelas pela ÁREA DE ORIGEM no diagrama OLTP.
+
+sources:
+
+ #---------------------------------------------------------------- ÁREA: SALES
+
+  - name: adventure_works
+    description: "Tabelas RAW da Adventure Works"
+    catalog: fea_academy
+    schema: adventure_works
+    tables:
+      - name: sales_salesorderheader
+        description: "Cabeçalho do pedido (uma linha por pedido). Traz as informações principais do pedido (número pedido, cod cliente, data, endereço etc.) além da informação do frete e imposto."
+      - name: sales_salesorderdetail
+        description: "A tabela armazena os detalhes dos pedidos de venda, incluindo os produtos adquiridos, as quantidades, os preços unitários, os descontos aplicados e os valores totais de cada item vendido."
+      - name: sales_customer
+        description: "A tabela armazena informações dos clientes, incluindo seus identificadores, vínculos com pessoas ou lojas, território de vendas e dados de controle para identificação única e registro da última modificação."
+      - name: sales_store 
+        description: "A tabela armazena informações das lojas, incluindo seus nomes, identificadores, vendedores responsáveis, dados demográficos e informações de controle para identificação única e registro da última modificação."
+      - name: sales_creditcard 
+        description: "A tabela armazena informações dos cartões de crédito utilizados nas transações, incluindo o tipo e número do cartão, mês e ano de vencimento e a data da última modificação do registro."
+      - name: sales_salesreason 
+        description: "A tabela armazena os motivos associados às vendas, incluindo o nome e o tipo de motivo, permitindo identificar e categorizar os fatores que influenciaram a realização das vendas, além de registrar a data da última modificação."
+      - name: sales_salesorderheadersalesreason
+        description: "Tabela que relaciona os pedidos de venda aos seus respectivos motivos de venda." 
+
+
+  # ---------------------------------------------------------------- ÁREA: PRODUCTION
+
+      - name: production_product
+        description: "Tabela que armazena informações dos produtos, incluindo identificação, características, custos, preços, estoque e dados de fabricação."
+      - name: production_productsubcategory
+        description: "Tabela que armazena as subcategorias de produtos e seus vínculos com as respectivas categorias."
+      - name: production_productcategory
+        description: "Tabela que armazena as categorias de produtos, permitindo organizar e classificar os produtos por grupos."
+
+
+  # ---------------------------------------------------------------- ÁREA: PERSON
+
+
+      - name: person_address
+        description: "Tabela que armazena os endereços, incluindo logradouro, cidade, estado, CEP e localização geográfica."            
+      - name: person_person 
+        description: "Tabela que armazena informações pessoais e cadastrais das pessoas, incluindo nome, tipo, dados de contato e informações demográficas."
+      - name: person_stateprovince
+        description: "Tabela que armazena informações dos estados e províncias, incluindo códigos, países e territórios de vendas associados."
+      - name: person_countryregion  
+        description: "Tabela que armazena os países e regiões, identificando seus nomes e códigos correspondentes."  
+     
+      
