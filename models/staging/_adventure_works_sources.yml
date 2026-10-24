@@ -6,13 +6,14 @@ version: 2
 
 sources:
 
- #---------------------------------------------------------------- ÁREA: SALES
-
   - name: adventure_works
     description: "Tabelas RAW da Adventure Works"
     catalog: fea_academy
     schema: adventure_works
     tables:
+
+ #---------------------------------------------------------------- ÁREA: SALES
+     
       - name: sales_salesorderheader
         description: "Cabeçalho do pedido (uma linha por pedido). Traz as informações principais do pedido (número pedido, cod cliente, data, endereço etc.) além da informação do frete e imposto."
       - name: sales_salesorderdetail
