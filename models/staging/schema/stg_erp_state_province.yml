@@ -1,0 +1,24 @@
+models:
+  - name: stg_erp_state_province
+    description: Tabela de estados e províncias, contendo códigos, nomes e relacionamentos com países ou regiões e territórios de vendas." 
+
+    columns:
+      - name: pk_state_province
+        description: "Chave primária que identifica unicamente cada estado ou província."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: fk_country_region
+        description: "Chave estrangeira que relaciona o estado ou província ao país ou região correspondente."
+
+      - name: fk_territory
+        description: "Chave estrangeira que relaciona o estado ou província ao território de vendas associado, quando aplicável."
+
+      - name: state_province_code
+        description: "Código que identifica o estado ou província dentro da estrutura geográfica de origem."
+
+      - name: state_province_name
+        description: "Nome do estado ou província."
+        data_tests:
+          - not_null

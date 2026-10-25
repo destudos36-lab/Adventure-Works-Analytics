@@ -1,0 +1,26 @@
+models:
+  - name: stg_erp_address
+    description: "Tabela de endereços, contendo informações de localização e relacionamento com a tabela de estados e províncias."
+
+    columns:
+      - name: pk_address
+        description: "Chave primária do enedereço, identificando unicamente cada registro de endereço."
+        data_tests:
+          - not_null
+          - unique
+          
+      - name: fk_state_province
+        description: "Chave estrangeira que relaciona o endereço ao estado ou província correspondente."
+
+      - name: address_line_1
+        description: "Primeira linha do endereço, contendo as principais informações de localização, como rua e número."
+
+      - name: address_line_2
+        description: "Segunda linha do endereço, utilizada para informações complementares, como apartamento, bloco ou complemento."
+
+      - name: city
+        description: "Nome da cidade onde o endereço está localizado."
+
+      - name: postal_code
+        description: "Código postal associado ao endereço, utilizado para identificação da área de entrega."
+            

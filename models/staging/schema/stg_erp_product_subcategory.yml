@@ -1,0 +1,18 @@
+models:
+  - name: stg_erp_product_subcategory
+    description: "Tabela de subcategorias de produtos, vinculadas às respectivas categorias para organizar a classificação dos produtos."
+
+    columns:
+      - name: pk_product_subcategory
+        description: "Chave primária que identifica unicamente cada subcategoria de produto."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: fk_product_category
+        description: "Chave estrangeira que relaciona a subcategoria à sua categoria de produto correspondente."
+
+      - name: product_subcategory_name
+        description: "Nome da subcategoria que detalha a classificação dos produtos dentro de uma categoria."
+        data_tests:
+          - not_null
