@@ -1,0 +1,55 @@
+models:
+  - name: stg_erp_sales_order_header
+    description: "Tabela de cabeçalho dos pedidos de venda, contendo informações de clientes, endereços, datas, status e valores financeiros dos pedidos."
+
+    columns:
+      - name: pk_sales_order
+        description: "Chave primária que identifica unicamente cada pedido de venda."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: fk_customer
+        description: "Chave estrangeira que identifica o cliente responsável pelo pedido."
+
+      - name: fk_territory
+        description: "Chave estrangeira que identifica o território de vendas associado ao pedido."
+
+      - name: fk_bill_to_address
+        description: "Chave estrangeira que identifica o endereço de cobrança do pedido."
+
+      - name: fk_ship_to_address
+        description: "Chave estrangeira que identifica o endereço de entrega do pedido."
+
+      - name: fk_credit_card
+        description: "Chave estrangeira que identifica o cartão de crédito utilizado no pagamento, quando aplicável."
+
+      - name: revision_number
+        description: "Número da revisão do pedido, indicando quantas vezes ele foi revisado."
+
+      - name: order_date
+        description: "Data em que o pedido de venda foi realizado."
+
+      - name: due_date
+        description: "Data prevista para pagamento ou vencimento do pedido."
+
+      - name: ship_date
+        description: "Data em que o pedido foi enviado ao cliente, quando disponível." 
+
+      - name: order_status
+        description: "Código que representa o status atual do pedido de venda."
+
+      - name: is_online_order
+        description: "Indicador que informa se o pedido foi realizado pela internet."
+
+      - name: subtotal
+        description: "Valor subtotal do pedido antes da inclusão de impostos e frete."
+      
+      - name: tax_amount
+        description: "Valor total dos impostos aplicados ao pedido."
+
+      - name: freight
+        description: "Valor do frete associado ao envio do pedido."
+
+      - name: total_due
+        description: "Valor total devido pelo pedido, incluindo subtotal, impostos e frete."

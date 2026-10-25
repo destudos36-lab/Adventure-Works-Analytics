@@ -16,40 +16,126 @@ sources:
      
       - name: sales_salesorderheader
         description: "Cabeçalho do pedido (uma linha por pedido). Traz as informações principais do pedido (número pedido, cod cliente, data, endereço etc.) além da informação do frete e imposto."
+        columns:
+          - name: salesorderid
+            description: "Chave primária da tabela sales_salesorderheader"
+            data_tests:
+              - not_null
+              - unique
       - name: sales_salesorderdetail
         description: "A tabela armazena os detalhes dos pedidos de venda, incluindo os produtos adquiridos, as quantidades, os preços unitários, os descontos aplicados e os valores totais de cada item vendido."
+        columns:
+          - name: salesorderdetailid
+            description: "Chave primária da tabela sales_salesorderdetail"
+            data_tests:
+              - not_null
+              - unique
       - name: sales_customer
         description: "A tabela armazena informações dos clientes, incluindo seus identificadores, vínculos com pessoas ou lojas, território de vendas e dados de controle para identificação única e registro da última modificação."
+        columns:
+          - name:  customerid
+            description: "Chave primária da tabela sales_customer"
+            data_tests:
+              - not_null
+              - unique
       - name: sales_store 
         description: "A tabela armazena informações das lojas, incluindo seus nomes, identificadores, vendedores responsáveis, dados demográficos e informações de controle para identificação única e registro da última modificação."
+        columns:
+          - name: businessentityid
+            description: "Chave primária da tabela sales_store"
+            data_tests:
+              - not_null
+              - unique
       - name: sales_creditcard 
         description: "A tabela armazena informações dos cartões de crédito utilizados nas transações, incluindo o tipo e número do cartão, mês e ano de vencimento e a data da última modificação do registro."
+        columns:
+          - name: creditcardid
+            description: "Chave primária da tabela sales_creditcard"
+            data_tests:
+              - not_null
+              - unique
       - name: sales_salesreason 
         description: "A tabela armazena os motivos associados às vendas, incluindo o nome e o tipo de motivo, permitindo identificar e categorizar os fatores que influenciaram a realização das vendas, além de registrar a data da última modificação."
+        columns:
+          - name: salesreasonid
+            description: "Chave primária da tabela sales_salesreason"
+            data_tests:
+              - not_null
+              - unique
       - name: sales_salesorderheadersalesreason
-        description: "Tabela que relaciona os pedidos de venda aos seus respectivos motivos de venda." 
+        description: "Tabela que relaciona os pedidos de venda aos seus respectivos motivos de venda."
+        data_tests:
+          - dbt_utils.unique_combination_of_columns:
+              arguments: 
+                combination_of_columns:
+                  - salesorderid
+                  - salesreasonid  
+        
 
 
   # ---------------------------------------------------------------- ÁREA: PRODUCTION
 
       - name: production_product
         description: "Tabela que armazena informações dos produtos, incluindo identificação, características, custos, preços, estoque e dados de fabricação."
+        columns:
+          - name: productid
+            description: "Chave primária da tabela production_product"
+            data_tests:
+              - not_null
+              - unique
       - name: production_productsubcategory
         description: "Tabela que armazena as subcategorias de produtos e seus vínculos com as respectivas categorias."
+        columns:
+          - name: productsubcategoryid
+            description: "Chave primária da tabela production_productsubcategory"
+            data_tests:
+              - not_null
+              - unique
       - name: production_productcategory
         description: "Tabela que armazena as categorias de produtos, permitindo organizar e classificar os produtos por grupos."
+        columns:
+          - name: productcategoryid
+            description: "Chave primária da tabela production_productcategory"
+            data_tests:
+              - not_null
+              - unique
 
 
   # ---------------------------------------------------------------- ÁREA: PERSON
 
 
       - name: person_address
-        description: "Tabela que armazena os endereços, incluindo logradouro, cidade, estado, CEP e localização geográfica."            
+        description: "Tabela que armazena os endereços, incluindo logradouro, cidade, estado, CEP e localização geográfica." 
+        columns:
+          - name: addressid
+            description: "Chave primária da tabela person_address"
+            data_tests:
+              - not_null
+              - unique           
       - name: person_person 
         description: "Tabela que armazena informações pessoais e cadastrais das pessoas, incluindo nome, tipo, dados de contato e informações demográficas."
+        columns:
+          - name: businessentityid
+            description: "Chave primária da tabela person_person"
+            data_tests:
+              - not_null
+              - unique
       - name: person_stateprovince
         description: "Tabela que armazena informações dos estados e províncias, incluindo códigos, países e territórios de vendas associados."
+        columns:
+          - name: stateprovinceid
+            description: "Chave primária da tabela person_stateprovince"
+            data_tests:
+              - not_null
+              - unique
       - name: person_countryregion  
-        description: "Tabela que armazena os países e regiões, identificando seus nomes e códigos correspondentes."  
+        description: "Tabela que armazena os países e regiões, identificando seus nomes e códigos correspondentes."
+        columns:
+          - name: countryregioncode
+            description: "Chave primária da tabela person_countryregion"
+            data_tests:
+              - unique:
+                  config:
+                      where: "name != 'Namibia' OR name IS NULL"  # Não teve nenhum pedido para esse destino (boas práticas informar a área para realizar correção no sitema)
      
       

@@ -1,0 +1,19 @@
+models:
+  - name: stg_erp_sales_store
+    description: "Tabela de lojas, contendo identificadores, nomes e relacionamentos com os vendedores responsáveis."
+
+    columns:
+      - name: pk_store
+        description: "Chave primária que identifica unicamente cada loja." 
+        data_tests:
+          - not_null
+          - unique
+          
+
+      - name: name_store
+        description: "Nome da loja, utilizado para identificar a unidade comercial."
+        data_tests:
+          - not_null
+
+      - name: fk_salesperson
+        description: "Chave estrangeira que relaciona a loja ao vendedor responsável, quando aplicável."

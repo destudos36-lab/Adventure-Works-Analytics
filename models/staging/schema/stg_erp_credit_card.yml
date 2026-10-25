@@ -1,0 +1,15 @@
+models:
+  - name: stg_erp_credit_card
+    description: "Tabela de cartões de crédito, contendo os identificadores e os tipos de cartão cadastrados."
+
+    columns:
+      - name: pk_credit_card
+        description: "Chave primária que identifica unicamente cada cartão de crédito."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: card_type
+        description: "Tipo ou bandeira do cartão de crédito, indicando a categoria do cartão."
+        data_tests:
+          - not_null  

@@ -1,0 +1,29 @@
+models:
+  - name: stg_erp_person
+    description: "Tabela de pessoas, contendo identificadores, informações pessoais e nome completo."
+
+    columns:
+      - name: pk_person
+        description: "Chave primária que identifica unicamente cada pessoa cadastrada."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: person_type
+        description: "Tipo de pessoa cadastrada, indicando sua classificação conforme a origem dos dados."  
+
+      - name: person_first_name
+        description: "Primeiro nome da pessoa."
+
+      - name: person_middle_name
+        description: "Nome do meio da pessoa, quando informado."
+
+      - name: person_last_name
+        description: "Sobrenome da pessoa."
+
+      - name: person_title
+        description: "Título ou forma de tratamento da pessoa, como Sr., Sra. ou outro título cadastrado."
+
+      - name: person_full_name
+        description: "Nome completo da pessoa, formado a partir dos campos de nome disponíveis."  
+          
