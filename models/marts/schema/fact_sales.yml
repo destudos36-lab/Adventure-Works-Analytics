@@ -1,0 +1,66 @@
+models:
+  - name: fact_sales
+    description: Tabela fato de vendas contendo informações dos pedidos, produtos, clientes, datas, quantidades e valores financeiros das transações.
+    columns:
+      - name: pk_sales_order_detail
+        description: Chave primária que identifica unicamente cada item de pedido de venda.
+        data_tests:
+          - unique
+          - not_null
+      - name: fk_sales_order
+        description: Chave estrangeira que identifica o pedido de venda.
+      - name: carrier_tracking_number
+        description: Código de rastreamento da transportadora responsável pelo envio.
+      - name: fk_product
+        description: Chave estrangeira que identifica o produto associado à venda.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: pk_product
+      - name: fk_customer
+        description: Chave estrangeira que identifica o cliente associado à venda.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: pk_customer
+      - name: order_date
+        description: Data em que o pedido de venda foi realizado.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_calendario')
+                field: date_key
+      - name: due_date
+        description: Data de vencimento do pedido.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_calendario')
+                field: date_key
+      - name: ship_date
+        description: Data de envio do pedido.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_calendario')
+                field: date_key
+      - name: order_status
+        description: Status do pedido de venda.
+      - name: is_online_order
+        description: Indicador booleano que identifica se o pedido foi realizado online.
+      - name: order_qtd
+        description: Quantidade de produtos solicitados no pedido.
+      - name: unit_price
+        description: Preço unitário do produto no momento da venda.
+      - name: unit_price_discount
+        description: Desconto aplicado ao preço unitário do produto.
+      - name: subtotal
+        description: Valor subtotal dos produtos antes de impostos e frete.
+      - name: tax_amount
+        description: Valor total dos impostos aplicados ao pedido.
+      - name: freight
+        description: Valor do frete associado ao pedido.
+      - name: total_due
+        description: Valor total devido pelo pedido, incluindo impostos e frete.
