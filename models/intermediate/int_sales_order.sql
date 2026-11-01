@@ -36,10 +36,7 @@ joined as (
      --     Métricas 
         , d.order_qtd
         , d.unit_price
-        , d.unit_price_discount
-        , cast(d.order_qtd * d.unit_price as decimal(18,2))                                             as gross_sales
-        , cast(d.order_qtd * d.unit_price * d.unit_price_discount as decimal(18,2))                     as discount_value
-        , cast(d.order_qtd * d.unit_price * (1 - d.unit_price_discount)   as decimal(18,2))             as net_sales
+        , d.unit_price_discount       
 
         , h.subtotal
         , h.tax_amount
