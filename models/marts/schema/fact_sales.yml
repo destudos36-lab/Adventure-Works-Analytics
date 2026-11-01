@@ -18,6 +18,13 @@ models:
               arguments:
                 to: ref('dim_products')
                 field: pk_product
+      - name: fk_credit_card
+        description: Chave estrangeira que identifica o cartão de crédito utilizado na transação.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_credit_cards')
+                field: pk_credit_card
       - name: fk_customer
         description: Chave estrangeira que identifica o cliente associado à venda.
         data_tests:
@@ -56,6 +63,12 @@ models:
         description: Preço unitário do produto no momento da venda.
       - name: unit_price_discount
         description: Desconto aplicado ao preço unitário do produto.
+      - name: gross_sales
+        description: Valor bruto das vendas antes da aplicação dos descontos.
+      - name: discount_value
+        description: Valor monetário total dos descontos aplicados às vendas.
+      - name: net_sales
+        description: Valor líquido das vendas após a aplicação dos descontos.
       - name: subtotal
         description: Valor subtotal dos produtos antes de impostos e frete.
       - name: tax_amount
