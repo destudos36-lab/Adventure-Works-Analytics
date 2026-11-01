@@ -23,9 +23,9 @@ with
                     else false
                 end                                                             as is_online_order
            ,   cast(subtotal as decimal(18,2))                                  as subtotal
-           ,   cast(taxamt as decimal(18,2))                                    as tax_amount
-           ,   cast(freight as decimal(18,2))                                   as freight
-           ,   cast(totaldue as decimal(18,2))                                  as total_due           
+           ,   cast(taxamt as decimal(18,4))                                    as tax_amount
+           ,   cast(freight as decimal(18,4))                                   as freight
+           ,   cast(totaldue as decimal(18,4))                                  as total_due           
         from fonte_sales_order_header
     )
 
