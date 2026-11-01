@@ -1,0 +1,41 @@
+models:
+  - name: dim_calendario
+    description: Dimensão de calendário utilizada para análises temporais, permitindo diferentes níveis de agregação e identificação de períodos.
+    columns:
+      - name: date_key
+        description: Chave primária que identifica unicamente cada data.
+        data_tests:
+          - unique
+          - not_null
+      - name: date_day
+        description: Data completa no formato de data.
+      - name: year_number
+        description: Número correspondente ao ano.
+      - name: quarter_number
+        description: Número do trimestre correspondente à data.
+      - name: month_number
+        description: Número do mês do ano.
+      - name: day_of_month
+        description: Dia do mês.
+      - name: week_of_year
+        description: Número da semana do ano.
+      - name: day_of_week
+        description: Número correspondente ao dia da semana.
+      - name: month_name
+        description: Nome completo do mês.
+      - name: month_short_name
+        description: Nome abreviado do mês.
+      - name: day_name
+        description: Nome do dia da semana.
+      - name: month_initial
+        description: Inicial do nome do mês.
+      - name: year_month
+        description: Identificação do período no formato ano e mês.
+      - name: year_quarter
+        description: Identificação do período no formato ano e trimestre.
+      - name: first_day_of_month
+        description: Primeiro dia do mês correspondente à data.
+      - name: last_day_of_month
+        description: Último dia do mês correspondente à data.
+      - name: is_weekend
+        description: Indicador booleano que identifica se a data corresponde a sábado ou domingo.
