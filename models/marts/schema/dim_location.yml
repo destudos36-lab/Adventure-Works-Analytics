@@ -1,0 +1,27 @@
+models:
+  - name: dim_location
+    description: Dimensão de endereços contendo informações de localização geográfica, município, estado e país.
+    columns:
+      - name: pk_address
+        description: Chave primária da dimensão de endereços.
+        data_tests:
+          - unique
+          - not_null
+      - name: address_line_1
+        description: Primeira linha do endereço.
+      - name: address_line_2
+        description: Segunda linha do endereço, quando disponível.
+      - name: city
+        description: Cidade do endereço.
+      - name: postal_code
+        description: Código postal do endereço.
+      - name: pk_state_province
+        description: Chave que identifica o estado ou província.
+      - name: state_province_code
+        description: Código de identificação do estado ou província.
+      - name: state_province_name
+        description: Nome do estado ou província.
+      - name: country_region_code
+        description: Código de identificação do país ou região.
+      - name: country_region_name
+        description: Nome do país ou região.
