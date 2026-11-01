@@ -32,6 +32,20 @@ models:
               arguments:
                 to: ref('dim_customers')
                 field: pk_customer
+      - name: fk_bill_to_address
+        description: Chave estrangeira que identifica o endereço de cobrança associado ao pedido de venda.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_location')
+                field: pk_address
+      - name: fk_ship_to_address
+        description: Chave estrangeira que identifica o endereço de entrega associado ao pedido de venda.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_location')
+                field: pk_address
       - name: order_date
         description: Data em que o pedido de venda foi realizado.
         data_tests:
