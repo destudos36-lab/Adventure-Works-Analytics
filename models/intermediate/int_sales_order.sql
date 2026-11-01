@@ -25,7 +25,9 @@ joined as (
         , d.carrier_tracking_number
         , d.fk_product
         , h.fk_credit_card
-        , h.fk_customer      
+        , h.fk_customer
+        , h.fk_bill_to_address
+        , h.fk_ship_to_address   
 
       --   Datas e Atributos
         , dt.date_key                                                                                    as order_date
