@@ -1,0 +1,18 @@
+models:
+  - name: stg_erp_sales_reason
+    description: "Tabela de motivos de venda, contendo os nomes e as categorias dos motivos associados aos pedidos."
+
+    columns:
+      - name: pk_sales_reason
+        description:  "Chave primária que identifica unicamente cada motivo de venda."
+        data_tests:
+          - not_null
+          - unique
+          
+      - name: reason_name
+        description: "Nome ou descrição do motivo pelo qual a venda foi realizada."
+        data_tests:
+          - not_null
+
+      - name: reason_type
+        description: "Categoria ou tipo do motivo de venda, utilizada para classificar e agrupar os motivos."

@@ -1,0 +1,10 @@
+models:
+  - name: stg_erp_sales_head_reason
+    description: "Tabela associativa que relaciona os pedidos de venda aos respectivos motivos de venda."
+
+    columns:
+      - name: fk_sales_order
+        description: "Chave estrangeira que identifica o pedido de venda relacionado."
+
+      - name: fk_sales_reason
+        description: "Chave estrangeira que identifica o motivo associado ao pedido de venda."

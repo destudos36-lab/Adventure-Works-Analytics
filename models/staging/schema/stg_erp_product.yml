@@ -1,0 +1,39 @@
+models:
+  - name: stg_erp_product
+    description: "Tabela de produtos, contendo informações de identificação, classificação, características, preços e período de comercialização."
+
+    columns:
+      - name: pk_product
+        description: "Chave primária que identifica unicamente cada produto."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: fk_product_subcategory
+        description: "Chave estrangeira que relaciona o produto à sua subcategoria, quando aplicável."
+
+      - name: product_name
+        description: "Nome comercial ou descritivo do produto."
+        data_tests:
+          - not_null
+
+      - name: product_number
+        description: "Código alfanumérico utilizado para identificar o produto no catálogo."
+      
+      - name: product_color
+        description: "Cor associada ao produto, quando aplicável."
+
+      - name: product_size
+        description: "Tamanho ou dimensão do produto, quando aplicável."
+
+      - name: standard_cost
+        description: "Custo padrão do produto, utilizado como referência para análises de custos."
+
+      - name: list_price
+        description: "Preço de tabela do produto, utilizado como referência comercial."
+
+      - name: sell_start_date
+        description: "Data de início da comercialização do produto."
+
+      - name: sell_end_date
+        description: "Data de encerramento da comercialização do produto, quando aplicável."

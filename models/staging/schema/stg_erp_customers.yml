@@ -1,0 +1,22 @@
+models:
+  - name: stg_erp_customers
+    description: "Tabela de clientes, contendo identificadores e relacionamentos com pessoas, lojas e territórios de vendas."
+
+    columns:
+      - name: pk_customer
+        description: "Chave primária que identifica unicamente cada cliente."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: fk_person
+        description: "Chave estrangeira que relaciona o cliente à pessoa cadastrada, quando aplicável."
+
+      - name: fk_store
+        description: "Chave estrangeira que relaciona o cliente à loja associada, quando aplicável."
+
+      - name: fk_territory
+        description: "Chave estrangeira que relaciona o cliente ao território de vendas correspondente, quando aplicável." 
+
+
+

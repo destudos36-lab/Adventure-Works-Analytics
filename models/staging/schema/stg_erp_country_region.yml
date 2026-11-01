@@ -1,0 +1,15 @@
+models:
+  - name: stg_erp_country_region
+    description: "Tabela de países e regiões, contendo seus códigos identificadores e respectivos nomes."
+
+    columns:
+      - name: pk_country_region
+        description: "Chave primária que identifica unicamente cada país ou região."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: country_region_name
+        description: "Nome do país ou região correspondente ao código identificador."
+        data_tests:
+          - not_null

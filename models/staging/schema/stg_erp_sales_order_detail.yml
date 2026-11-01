@@ -1,0 +1,31 @@
+models:
+  - name: stg_erp_sales_order_detail
+    description: "Tabela de detalhes dos pedidos de venda, contendo produtos, quantidades, preços, descontos e informações de rastreamento."
+
+    columns:
+      - name: pk_sales_order_detail
+        description: "Chave primária que identifica unicamente cada item de um pedido de venda."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: fk_sales_order
+        description: "Chave estrangeira que relaciona o detalhe ao pedido de venda correspondente."
+
+      - name: carrier_tracking_number
+        description: "Código de rastreamento da transportadora associado ao envio do pedido, quando disponível."
+
+      - name: fk_product
+        description: "Chave estrangeira que identifica o produto incluído no detalhe do pedido."
+
+      - name: fk_special_offer
+        description: "Chave estrangeira que identifica a oferta especial ou promoção aplicada ao produto."
+
+      - name: order_qtd
+        description: "Quantidade de unidades do produto incluídas no detalhe do pedido."
+
+      - name: unit_price
+        description: "Preço unitário do produto no momento da venda."
+
+      - name: unit_price_discount
+        description: "Percentual ou valor de desconto unitário aplicado ao produto, conforme a definição da origem."    

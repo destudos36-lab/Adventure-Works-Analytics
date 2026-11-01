@@ -7,7 +7,7 @@ with
 
     , renamed as (
         select
-            cast(salesorderdetailid as int)                     as PK_sales_order_detail
+            cast(salesorderdetailid as int)                     as pk_sales_order_detail
             ,   cast(salesorderid as int)                       as fk_sales_order
             ,   cast(carriertrackingnumber as string)           as carrier_tracking_number            
             ,   cast(productid as int)                          as fk_product
