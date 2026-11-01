@@ -13,8 +13,8 @@ with
             ,   cast(productid as int)                          as fk_product
             ,   cast(specialofferid as int)                     as fk_special_offer
             ,   cast(orderqty as int)                           as order_qtd
-            ,   cast(unitprice as decimal(18,2))                as unit_price
-            ,   cast(unitpricediscount as decimal(18,2))        as unit_price_discount            
+            ,   cast(unitprice as decimal(18,4))                as unit_price
+            ,   cast(unitpricediscount as decimal(18,4))        as unit_price_discount            
         from fonte_order_detail
     )
 
