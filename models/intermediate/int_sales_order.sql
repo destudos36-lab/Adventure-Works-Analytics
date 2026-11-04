@@ -6,6 +6,12 @@ header as  (
     select * from {{ ref('stg_erp_sales_order_header') }}
 ),
 
+credit_cards as (
+
+    select *
+    from {{ ref('int_credit_cards') }}
+),
+
 customers as (
     select * from {{ ref('int_customers') }}
 ),
@@ -24,8 +30,8 @@ joined as (
         , d.fk_sales_order
         , d.carrier_tracking_number
         , d.fk_product
-        , h.fk_credit_card
-        , h.fk_customer
+        , cc.pk_credit_card                                                                             as fk_credit_card
+        , c.pk_customer                                                                                 as fk_customer
         , h.fk_bill_to_address
         , h.fk_ship_to_address   
 
@@ -52,6 +58,10 @@ joined as (
     from detail d
     left join header h
         on d.fk_sales_order = h.pk_sales_order
+    left join credit_cards cc
+        on h.fk_credit_card = cc.pk_credit_card
+    left join customers c
+        on h.fk_customer = c.pk_customer
     left join datas dt
         on h.order_date = dt.date_key
     left join datas d
