@@ -1,0 +1,21 @@
+models:
+  - name: dim_customers
+    description: Dimensão de clientes utilizada para análises e identificação dos clientes.
+    columns:
+      - name: pk_customer
+        description: Chave primária da dimensão de clientes.
+        data_tests:
+          - unique
+          - not_null
+      - name: person_id
+        description: Identificador da pessoa associada ao cliente.
+      - name: first_name
+        description: Primeiro nome do cliente.
+      - name: full_name
+        description: Nome completo do cliente.
+      - name: person_type
+        description: Tipo de pessoa associado ao cadastro.
+      - name: customer_type
+        description: Classificação do cliente.
+      - name: customer_name
+        description: Nome de identificação do cliente.
