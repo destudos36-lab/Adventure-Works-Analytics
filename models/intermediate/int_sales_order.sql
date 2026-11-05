@@ -59,7 +59,7 @@ joined as (
     left join header h
         on d.fk_sales_order = h.pk_sales_order
     left join credit_cards cc
-        on h.fk_credit_card = cc.pk_credit_card
+        on coalesce(h.fk_credit_card, -1) = cc.pk_credit_card
     left join customers c
         on h.fk_customer = c.pk_customer
     left join datas dt
