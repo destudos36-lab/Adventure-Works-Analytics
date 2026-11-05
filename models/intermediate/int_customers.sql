@@ -94,3 +94,4 @@ customers_enriquecido as (
 
 select *
 from customers_enriquecido
+
