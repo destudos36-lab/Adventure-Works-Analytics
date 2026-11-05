@@ -28,3 +28,7 @@ credit_card_enriquecido as (
 
 select *
 from credit_card_enriquecido
+
+
+
+
