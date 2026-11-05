@@ -1,0 +1,12 @@
+models:
+  - name: dim_bridge_sales_order_reasons
+    description: Tabela ponte que relaciona pedidos de venda aos respectivos motivos de venda.
+    columns:
+      - name: fk_sales_order
+        description: Chave estrangeira que identifica o pedido de venda.
+        data_tests:
+          - not_null
+      - name: fk_sales_reason
+        description: Chave estrangeira que identifica o motivo associado ao pedido de venda.
+        data_tests:
+          - not_null
