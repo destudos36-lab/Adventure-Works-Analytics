@@ -30,7 +30,10 @@ joined as (
         , d.fk_sales_order
         , d.carrier_tracking_number
         , d.fk_product
-        , cc.pk_credit_card                                                                             as fk_credit_card
+        , case
+            when h.fk_credit_card is null then -1
+            else cc.pk_credit_card
+        end                                                                                             as fk_credit_card
         , c.pk_customer                                                                                 as fk_customer
         , h.fk_bill_to_address
         , h.fk_ship_to_address   
