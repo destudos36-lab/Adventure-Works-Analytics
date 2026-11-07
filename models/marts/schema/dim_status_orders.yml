@@ -1,0 +1,11 @@
+models:
+  - name: dim_status_orders
+    description: Dimensão dos status dos pedidos realizados pelos clientes.
+    columns:
+      - name: status
+        description: Chave primária da dimensão de status pedidos.
+        data_tests:
+          - unique
+          - not_null
+      - name: status_description
+        description: Descrição dos status dos pedidos.
