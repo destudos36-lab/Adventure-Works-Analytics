@@ -69,6 +69,11 @@ models:
                 field: date_key
       - name: order_status
         description: Status do pedido de venda.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_status_orders')
+                field: status
       - name: is_online_order
         description: Indicador booleano que identifica se o pedido foi realizado online.
       - name: order_qtd
