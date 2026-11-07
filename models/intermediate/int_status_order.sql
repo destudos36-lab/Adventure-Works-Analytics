@@ -6,7 +6,8 @@ with order_header as (
 ),
 
 status_orders as (
-    select
+    select 
+        distinct
         order_status                    as status
         , case order_status
             when 1 then 'In Process'
@@ -20,7 +21,3 @@ status_orders as (
 
 select *
 from status_orders
-
-        
-
-
