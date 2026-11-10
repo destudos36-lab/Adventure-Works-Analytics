@@ -1,5 +1,5 @@
 /*
-    Esse teste certifica que as transações de 2011 batem com o valor auditado de 12646112.16
+    Esse teste certifica que as aditoria da gross_sales de 2011 batem com o valor auditado de 12646112.16
 */
 
 
