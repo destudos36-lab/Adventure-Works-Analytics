@@ -300,11 +300,12 @@ A implementação da plataforma proporciona:
 
 ## 👨‍💻 10. Autor
 
-Projeto desenvolvido como iniciativa de aplicação prática de conceitos de **Engenharia de Analytics, Engenharia de Dados, Business Intelligence e Modern Data Stack**.
+**Danilo Justino**  
+*Data Analytics | Analytics Engineering | Data Engineering*
 
-**Desenvolvido por:** [Danilo Justino]
+Projeto desenvolvido com foco na aplicação prática de conceitos de Engenharia de Dados, Analytics Engineering, Modelagem Dimensional, Modern Data Stack e Business Intelligence.
 
-🔗 **GitHub:** [https://github.com/destudos36]
+🔗 **GitHub:** [github.com/destudos36](https://github.com/destudos36)
 
 ---
 
