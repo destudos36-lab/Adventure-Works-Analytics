@@ -305,7 +305,7 @@ A implementação da plataforma proporciona:
 
 Projeto desenvolvido com foco na aplicação prática de conceitos de Engenharia de Dados, Analytics Engineering, Modelagem Dimensional, Modern Data Stack e Business Intelligence.
 
-🔗 **GitHub:** [github.com/destudos36](https://github.com/destudos36)
+🔗 **GitHub:** [github.com/destudos36-lab](https://github.com/destudos36-lab)
 
 ---
 
