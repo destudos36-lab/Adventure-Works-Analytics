@@ -85,43 +85,65 @@ flowchart TD
 
 ## 📁 4. Estrutura do Repositório
 
+O projeto está organizado seguindo a estrutura padrão de um projeto **dbt**, com diretórios específicos para modelagem, testes, documentação, macros e análises.
+
 ```text
 adventure-works/
 │
-├── docs/
-│   ├── diagrama_conceitual_dw.pdf
-│   └── arquitetura_solucao.png
+├── analyses/                  # Consultas SQL para análises exploratórias
 │
-├── pbix/
-│   └── adventure_works_analytics.pbix
+├── docs/                      # Documentação e diagramas do projeto
 │
-├── dbt_project/
-│   ├── models/
-│   │   ├── staging/
-│   │   ├── intermediate/
-│   │   └── marts/
-│   │
-│   ├── tests/
-│   │   └── audit_gross_sales_2011.sql
-│   │
-│   ├── schema.yml
-│   └── dbt_project.yml
+├── macros/                    # Macros personalizadas em Jinja/SQL
 │
-├── scripts/
-│   └── raw_ingestion.py
+├── models/                    # Modelos de transformação dbt
+│   ├── staging/                # Limpeza e padronização dos dados
+│   ├── intermediate/           # Transformações intermediárias
+│   └── marts/                  # Fatos e dimensões (Star Schema)
 │
-└── README.md
+├── pbix/                      # Arquivos do Power BI
+│
+├── seeds/                     # Arquivos CSV para carga via dbt
+│                               # Diretório não utilizado no projeto
+│
+├── snapshots/                 # Controle histórico de alterações
+│                               # Diretório não utilizado no projeto
+│
+├── tests/                     # Testes de qualidade e auditoria dos dados
+│
+├── .gitignore                 # Arquivos e diretórios ignorados pelo Git
+│
+├── LICENSE                    # Licença do repositório
+│
+├── README.md                  # Documentação principal do projeto
+│
+├── dbt_project.yml            # Configurações principais do projeto dbt
+│
+├── package-lock.yml           # Arquivo de controle de dependências
+│
+└── packages.yml               # Configuração dos pacotes do dbt
 ```
 
 ### 📂 Descrição dos Diretórios
 
-- **docs/**: Documentação técnica, diagrama conceitual e arquitetura da solução.
-- **pbix/**: Arquivo Power BI contendo os dashboards desenvolvidos.
-- **dbt_project/**: Projeto de transformação, modelagem e testes de dados.
-- **scripts/**: Scripts Python utilizados no processo de ingestão.
-- **README.md**: Documentação principal do projeto.
+| Diretório / Arquivo | Descrição | Utilização |
+|:---|:---|:---|
+| `analyses/` | Consultas SQL destinadas a análises exploratórias. | Estrutura disponível |
+| `docs/` | Documentação técnica e diagramas da solução. | Utilizado |
+| `macros/` | Funções reutilizáveis desenvolvidas com Jinja e SQL. | Estrutura disponível |
+| `models/` | Camada principal de transformação dos dados no dbt. | Utilizado |
+| `pbix/` | Arquivos dos dashboards desenvolvidos no Power BI. | Utilizado |
+| `seeds/` | Diretório destinado à ingestão de arquivos CSV pelo dbt. | Não utilizado |
+| `snapshots/` | Diretório destinado ao versionamento histórico dos registros. | Não utilizado |
+| `tests/` | Testes de qualidade, integridade e auditoria dos dados. | Utilizado |
+| `.gitignore` | Define arquivos e diretórios ignorados pelo Git. | Utilizado |
+| `LICENSE` | Define os termos de utilização e distribuição do projeto. | Disponível |
+| `dbt_project.yml` | Define configurações, caminhos e propriedades do projeto dbt. | Utilizado |
+| `packages.yml` | Define as dependências externas do projeto dbt. | Disponível |
+| `package-lock.yml` | Arquivo relacionado ao controle de versões das dependências. | Disponível |
+| `README.md` | Documentação principal do repositório. | Utilizado |
 
----
+**Observação:** Os diretórios `seeds/` e `snapshots/` fazem parte da estrutura padrão do dbt, mas não foram utilizados no desenvolvimento desta solução. Sua presença no repositório não significa que existam processos implementados nessas camadas.
 
 ## 📐 5. Modelagem Dimensional (Camada Marts)
 
