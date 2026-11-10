@@ -1,8 +1,11 @@
-# Adventure-Works-Analytics
-
 🚴 Adventure Works (AW) - Modern Data Platform & Analytics Engineering
 
-![dbt](https://img.shields.io/badge/dbt-Cloud-orange?logo=dbt) ![Databricks](https://img.shields.io/badge/Databricks-Lakehouse-red?logo=databricks) ![Power BI](https://img.shields.io/badge/Power_BI-Analytics-yellow?logo=powerbi) ![GitHub](https://img.shields.io/badge/Git-Version_Control-blue?logo=github)
+<p align="left">
+<img src="https://img.shields.io/badge/dbt-Cloud-orange?logo=dbt" alt="dbt Cloud">
+<img src="https://img.shields.io/badge/Databricks-Lakehouse-red?logo=databricks" alt="Databricks">
+<img src="https://img.shields.io/badge/Power_BI-Analytics-yellow?logo=powerbi" alt="Power BI">
+<img src="https://img.shields.io/badge/Git-Version_Control-blue?logo=github" alt="GitHub">
+</p>
 
 📌 1. Visão Geral do Projeto
 
@@ -19,45 +22,71 @@ Tomada de Decisão: Desenvolvimento de dashboards interativos no Power BI, com f
 
 A arquitetura foi desenvolvida seguindo os princípios de uma Modern Data Platform, contemplando ingestão, armazenamento, transformação, governança e visualização.
 
-Fluxo de Dados
+🔄 Fluxo de Dados
 text
-              [ POSTGRESQL ]
-              (Dados de Origem)
-                     |
-                     ▼
-          [ SCRIPT PYTHON - EL ]
-              (Ingestão de Dados)
-                     |
-                     ▼
-             [ DATABRICKS RAW ]
-              Schema: adventure_works
-                     |
-                     ▼
-                [ dbt CLOUD ]
-              Ambientes DEV / PROD
-                     |
-                     ▼
-        ┌────────────────────────────┐
-        │   CAMADAS DE TRANSFORMAÇÃO │
-        │                            │
-        │  ├── Staging (stg_)        │
-        │  ├── Intermediate (int_)   │
-        │  └── Marts (dim_/fact_)    │
-        │                            │
-        └────────────────────────────┘
-                     |
-                     ▼
-          [ GOVERNANÇA E CI/CD ]
-          DBT TEST / DOCS / LINEAGE
-                     |
-                     ▼
-             [ POWER BI ]
-          DirectQuery / Import
-                     |
-                     ▼
-          [ DASHBOARDS ANALÍTICOS ]
+┌──────────────────────────────┐
+│         POSTGRESQL           │
+│        Dados de Origem       │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│       SCRIPT PYTHON          │
+│        Ingestão (EL)         │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│       DATABRICKS RAW         │
+│   Schema: adventure_works    │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│          DBT CLOUD           │
+│       Ambientes DEV/PROD     │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────────────────────┐
+│           CAMADAS DE TRANSFORMAÇÃO           │
+│                                              │
+│  ┌────────────────────────────────────────┐  │
+│  │ STAGING (stg_)                         │  │
+│  │ Limpeza, tipagem e padronização        │  │
+│  └────────────────────┬───────────────────┘  │
+│                       ▼                      │
+│  ┌────────────────────────────────────────┐  │
+│  │ INTERMEDIATE (int_)                    │  │
+│  │ Regras e junções intermediárias        │  │
+│  └────────────────────┬───────────────────┘  │
+│                       ▼                      │
+│  ┌────────────────────────────────────────┐  │
+│  │ MARTS (dim_ / fact_)                   │  │
+│  │ Modelagem Dimensional - Star Schema    │  │
+│  └────────────────────────────────────────┘  │
+└──────────────────────┬───────────────────────┘
+                       │
+                       ▼
+┌──────────────────────────────┐
+│     GOVERNANÇA E CI/CD       │
+│   DBT TEST / DOCS / LINEAGE  │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│          POWER BI            │
+│      DirectQuery / Import    │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│     DASHBOARDS ANALÍTICOS    │
+│   Executive Summary / Deep   │
+│             Dive             │
+└──────────────────────────────┘
 
-Camadas de Transformação
+📚 Camadas de Transformação
 Camada	Prefixo	Responsabilidade
 Staging	stg_	Limpeza, tipagem e padronização dos dados de origem.
 Intermediate	int_	Aplicação de regras de negócio, junções e transformações intermediárias.
@@ -100,7 +129,7 @@ adventure-works/
 │
 └── README.md
 
-Descrição dos diretórios
+📂 Descrição dos Diretórios
 docs/: Documentação técnica, diagrama conceitual e arquitetura da solução.
 pbix/: Arquivo Power BI contendo os dashboards desenvolvidos.
 dbt_project/: Projeto de transformação, modelagem e testes de dados.
@@ -110,19 +139,22 @@ README.md: Documentação principal do projeto.
 
 A modelagem dimensional foi desenvolvida seguindo os princípios de Ralph Kimball, utilizando o modelo Star Schema (Esquema Estrela).
 
-⭐ Tabela Fato
+⭐ 5.1. Tabela Fato
 
 fact_sales
 
 Representa as vendas realizadas pela Adventure Works.
 
 Granularidade: Um registro por item do pedido de venda (pk_sales_order_detail).
-Métricas principais:
-gross_sales: Valor bruto das vendas.
-discount_value: Valor dos descontos.
-net_sales: Valor líquido das vendas.
-order_qtd: Quantidade de itens vendidos.
-📊 Tabelas de Dimensão
+
+Principais métricas:
+
+Métrica	Descrição
+gross_sales	Valor bruto das vendas.
+discount_value	Valor dos descontos.
+net_sales	Valor líquido das vendas.
+order_qtd	Quantidade de itens vendidos.
+📊 5.2. Tabelas de Dimensão
 Dimensão	Descrição
 dim_customers	Cadastro consolidado de clientes e lojas.
 dim_products	Produtos, subcategorias e categorias.
@@ -131,7 +163,7 @@ dim_calendario	Dimensão de tempo para análises temporais.
 dim_credit_cards	Informações sobre os tipos de cartões de crédito.
 dim_status_orders	Status e acompanhamento do fluxo dos pedidos.
 dim_sales_reasons	Motivos associados às vendas.
-🔗 Tabela Ponte (Bridge)
+🔗 5.3. Tabela Ponte (Bridge)
 
 dim_bridge_sales_order_reasons
 
@@ -139,7 +171,7 @@ Responsável por resolver o relacionamento muitos-para-muitos (N:M) entre pedido
 
 Essa estrutura permite analisar os motivos associados a cada pedido sem provocar duplicidade ou inflação dos valores financeiros nas métricas da tabela fato.
 
-📄 Diagrama Conceitual
+📄 5.4. Diagrama Conceitual
 
 O modelo conceitual completo do Data Warehouse está disponível em:
 
@@ -165,9 +197,9 @@ Foi desenvolvido um teste customizado para atender à solicitação de auditoria
 
 Objetivo: Validar se o faturamento bruto registrado no ano de 2011 corresponde exatamente ao valor esperado de:
 
-US$ 12.646.112,16
+💰 US$ 12.646.112,16
 
-O teste está localizado em:
+Arquivo de teste:
 
 dbt_project/tests/audit_gross_sales_2011.sql
 
@@ -202,11 +234,11 @@ O projeto contempla dashboards desenvolvidos no Power BI, organizados em duas ab
 
 A construção dos painéis utiliza princípios de Data Storytelling, com organização visual baseada no padrão F-pattern e posicionamento estratégico dos indicadores (KPIs).
 
-📈 Aba 1 — Visão Geral Executiva (Executive Summary)
+📈 7.1. Aba 1 — Visão Geral Executiva (Executive Summary)
 
 Painel direcionado à análise gerencial e ao acompanhamento dos principais indicadores de desempenho da empresa.
 
-🔎 Aba 2 — Detalhamento Multidimensional (Deep Dive)
+🔎 7.2. Aba 2 — Detalhamento Multidimensional (Deep Dive)
 
 Painel destinado à exploração analítica dos dados, permitindo aprofundar as análises sob diferentes perspectivas de negócio.
 
