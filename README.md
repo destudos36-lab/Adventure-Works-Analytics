@@ -269,7 +269,8 @@ O arquivo completo do projeto está disponível em:
 
 `pbix/adventure_works_analytics.pbix`
 
-🔗 Clique aqui para acessar o Dashboard Interativo no Power BI
+**[Link para o Power BI](https://app.powerbi.com/view?r=eyJrIjoiNjQ4ZGExMTctN2ZiOC00NGZiLThlMWQtMzA2YjM2NDA0MGI1IiwidCI6Ijg2MjQ2MGM3LTBjYjEtNGRiNS1hMDM0LWNjNzkzZmIwNDM5YSJ9)**
+
 ---
 
 ## 📹 8. Apresentação em Vídeo
