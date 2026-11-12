@@ -269,6 +269,7 @@ O arquivo completo do projeto está disponível em:
 
 `pbix/adventure_works_analytics.pbix`
 
+🔗 Clique aqui para acessar o Dashboard Interativo no Power BI
 ---
 
 ## 📹 8. Apresentação em Vídeo
@@ -281,7 +282,7 @@ A demonstração técnica e visual apresenta os principais componentes da soluç
 - Documentação e linhagem dos dados (*Data Lineage*).
 - Navegação e análise dos dashboards no Power BI.
 
-🔗 **[Link para o Vídeo de Demonstração](INSIRA_SEU_LINK_AQUI)**
+🔗 **[Link para o Vídeo de Demonstração](https://drive.google.com/file/d/10od3CUb_-KpTyTDxiPxt67qcJrZ5-gE6/view?usp=sharing)**
 
 ---
 
