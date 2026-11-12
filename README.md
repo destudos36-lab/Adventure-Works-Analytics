@@ -11,7 +11,7 @@
 
 A **Adventure Works (AW)** é uma indústria de bicicletas em expansão, com mais de 500 produtos, 20.000 clientes e 31.000 pedidos.
 
-Este projeto implementa uma **Plataforma Moderna de Dados (Modern Data Stack)** de ponta a ponta, transformando dados brutos em informações estratégicas para apoiar a tomada de decisão baseada em dados (*Data-Driven Decision Making*).
+Este projeto implementa uma **Plataforma Moderna de Dados (Modern Data Stack)** de ponta a ponta, transformando dados brutos em informações estratégicas para apoiar a tomada de decisão baseada em dados.
 
 ### 🎯 Objetivos Principais
 
@@ -259,7 +259,7 @@ A construção dos painéis utiliza princípios de **Data Storytelling**, com or
 
 Painel direcionado à análise gerencial e ao acompanhamento dos principais indicadores de desempenho da empresa.
 
-### 🔎 7.2. Aba 2 — Detalhamento Multidimensional (Deep Dive)
+### 🔎 7.2. Aba 2 — Detalhamento Multidimensional 
 
 Painel destinado à exploração analítica dos dados, permitindo aprofundar as análises sob diferentes perspectivas de negócio.
 
@@ -303,7 +303,7 @@ A implementação da plataforma proporciona:
 ## 👨‍💻 10. Autor
 
 **Danilo Justino**  
-*Data Analytics | Analytics Engineering | Data Engineering*
+*Controladoria & BI | Data Analytics | Business Intelligence | Data Engineering*
 
 Projeto desenvolvido com foco na aplicação prática de conceitos de Engenharia de Dados, Analytics Engineering, Modelagem Dimensional, Modern Data Stack e Business Intelligence.
 
